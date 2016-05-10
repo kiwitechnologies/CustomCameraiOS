@@ -1,0 +1,10 @@
+framework module TSGCamera {
+  umbrella header "TSGCamera.h"
+
+  export *
+  module * { export * }
+}
+
+module TSGCamera.Swift {
+    header "TSGCamera-Swift.h"
+}
