@@ -1,12 +1,8 @@
-
 //
-//  Enums.swift
-//  CustomCamera
+//  TOActivityCroppedImageProvider.h
 //
-//  Created by Ayush on 4/28/16.
-//  Copyright © 2016 Kiwitech. All rights reserved.
+//  Copyright 2015-2016 Timothy Oliver. All rights reserved.
 //
-
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
 //  deal in the Software without restriction, including without limitation the
@@ -24,38 +20,14 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-public enum CameraState
-{
-    case Authorized, AccessDenied, NotDetermined, Restricted
-}
+#import <UIKit/UIKit.h>
 
-public enum CameraDevicePosition
-{
-    case Front, Back
-}
+@interface TOActivityCroppedImageProvider : UIActivityItemProvider
 
-public enum CameraFlashMode: Int
-{
-    case Off, On, Auto
-}
+@property (nonatomic, readonly) UIImage *image;
+@property (nonatomic, readonly) CGRect cropFrame;
+@property (nonatomic, readonly) NSInteger angle;
 
+- (instancetype)initWithImage:(UIImage *)image cropFrame:(CGRect)cropFrame angle:(NSInteger)angle;
 
-public enum CameraOutputQuality: Int
-{
-    case Low, Medium, High
-}
-
-public enum FlashMode : Int {
-    
-    case Off
-    case On
-    case Auto
-}
-
-public enum TorchMode : Int {
-    
-    case Off
-    case On
-    case Auto
-}
-
+@end

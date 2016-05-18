@@ -1,12 +1,8 @@
-
 //
-//  Enums.swift
-//  CustomCamera
+//  TOCroppedImageAttributes.h
 //
-//  Created by Ayush on 4/28/16.
-//  Copyright © 2016 Kiwitech. All rights reserved.
+//  Copyright 2015-2016 Timothy Oliver. All rights reserved.
 //
-
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
 //  deal in the Software without restriction, including without limitation the
@@ -24,38 +20,15 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-public enum CameraState
-{
-    case Authorized, AccessDenied, NotDetermined, Restricted
-}
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-public enum CameraDevicePosition
-{
-    case Front, Back
-}
+@interface TOCroppedImageAttributes : NSObject
 
-public enum CameraFlashMode: Int
-{
-    case Off, On, Auto
-}
+@property (nonatomic, readonly) NSInteger angle;
+@property (nonatomic, readonly) CGRect croppedFrame;
+@property (nonatomic, readonly) CGSize originalImageSize;
 
+- (instancetype)initWithCroppedFrame:(CGRect)croppedFrame angle:(NSInteger)angle originalImageSize:(CGSize)originalSize;
 
-public enum CameraOutputQuality: Int
-{
-    case Low, Medium, High
-}
-
-public enum FlashMode : Int {
-    
-    case Off
-    case On
-    case Auto
-}
-
-public enum TorchMode : Int {
-    
-    case Off
-    case On
-    case Auto
-}
-
+@end

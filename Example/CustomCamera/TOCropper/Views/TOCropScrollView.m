@@ -1,12 +1,8 @@
-
 //
-//  Enums.swift
-//  CustomCamera
+//  TOCropScrollView
 //
-//  Created by Ayush on 4/28/16.
-//  Copyright © 2016 Kiwitech. All rights reserved.
+//  Copyright 2015-2016 Timothy Oliver. All rights reserved.
 //
-
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
 //  deal in the Software without restriction, including without limitation the
@@ -24,38 +20,32 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-public enum CameraState
+#import "TOCropScrollView.h"
+
+@implementation TOCropScrollView
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    case Authorized, AccessDenied, NotDetermined, Restricted
+    if (self.touchesBegan)
+        self.touchesBegan();
+        
+    [super touchesBegan:touches withEvent:event];
 }
 
-public enum CameraDevicePosition
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    case Front, Back
-}
-
-public enum CameraFlashMode: Int
-{
-    case Off, On, Auto
-}
-
-
-public enum CameraOutputQuality: Int
-{
-    case Low, Medium, High
-}
-
-public enum FlashMode : Int {
+    if (self.touchesEnded)
+        self.touchesEnded();
     
-    case Off
-    case On
-    case Auto
+    [super touchesEnded:touches withEvent:event];
 }
 
-public enum TorchMode : Int {
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if (self.touchesCancelled)
+        self.touchesCancelled();
     
-    case Off
-    case On
-    case Auto
+    [super touchesCancelled:touches withEvent:event];
 }
 
+@end

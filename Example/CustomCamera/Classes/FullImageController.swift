@@ -8,7 +8,8 @@
 
 import UIKit
 
-class FullImageController: UIViewController {
+class FullImageController: UIViewController,TOCropViewControllerDelegate
+{
     @IBOutlet private weak var _imageView:UIImageView!
     var _captureImage: UIImage!
     
@@ -25,6 +26,24 @@ class FullImageController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func cropClicked(sender: UIButton)
+    {
+        let cropController:TOCropViewController = TOCropViewController(image: _captureImage)
+        cropController.delegate = self
+        cropController.defaultAspectRatio = TOCropViewControllerAspectRatio.RatioSquare
+        cropController.aspectRatioLocked = true
+        cropController.toolbar.hidden = false
+        self.presentViewController(cropController, animated: true, completion: nil)
+
+    }
+    
+    func cropViewController(cropViewController: TOCropViewController!, didCropToImage image: UIImage!, withRect cropRect: CGRect, angle: Int)
+    {
+        _imageView.image = image
+        cropViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+
 
     /*
     // MARK: - Navigation

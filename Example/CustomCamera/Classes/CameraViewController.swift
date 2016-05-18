@@ -26,7 +26,11 @@ class CameraViewController: UIViewController, CameraViewDelegate
         cameraView.frame = CGRectMake(0, 0, cameraContainer.frame.size.width, cameraContainer.frame.size.height)
         cameraContainer.addSubview(cameraView)
         cameraView.delegate = self
-        cameraView.initCamera() 
+        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
+            print("Please Run on Device")
+        #else
+            cameraView.initCamera()
+        #endif
         // Do any additional setup after loading the view, typically from a nib.
     }
     

@@ -2,6 +2,7 @@ Security-Framework
 =============
 ## Features
 - [x] Capture Image in any frame.
+- [x] Crop Image in any aspect-ratio/frame.
 - [x] Enable/Disable Flash Mode
 - [x] Enable/Disable  Torch Mode
 - [x] Set Camera Quality

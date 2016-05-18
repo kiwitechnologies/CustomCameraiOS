@@ -1,12 +1,8 @@
-
 //
-//  Enums.swift
-//  CustomCamera
+//  TOCropOverlayView.h
 //
-//  Created by Ayush on 4/28/16.
-//  Copyright © 2016 Kiwitech. All rights reserved.
+//  Copyright 2015-2016 Timothy Oliver. All rights reserved.
 //
-
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
 //  deal in the Software without restriction, including without limitation the
@@ -24,38 +20,20 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-public enum CameraState
-{
-    case Authorized, AccessDenied, NotDetermined, Restricted
-}
+#import <UIKit/UIKit.h>
 
-public enum CameraDevicePosition
-{
-    case Front, Back
-}
+@interface TOCropOverlayView : UIView
 
-public enum CameraFlashMode: Int
-{
-    case Off, On, Auto
-}
+/** Hides the interior grid lines, sans animation. */
+@property (nonatomic, assign) BOOL gridHidden;
 
+/** Add/Remove the interior horizontal grid lines. */
+@property (nonatomic, assign) BOOL displayHorizontalGridLines;
 
-public enum CameraOutputQuality: Int
-{
-    case Low, Medium, High
-}
+/** Add/Remove the interior vertical grid lines. */
+@property (nonatomic, assign) BOOL displayVerticalGridLines;
 
-public enum FlashMode : Int {
-    
-    case Off
-    case On
-    case Auto
-}
+/** Shows and hides the interior grid lines with an optional crossfade animation. */
+- (void)setGridHidden:(BOOL)hidden animated:(BOOL)animated;
 
-public enum TorchMode : Int {
-    
-    case Off
-    case On
-    case Auto
-}
-
+@end

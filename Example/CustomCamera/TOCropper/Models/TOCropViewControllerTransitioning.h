@@ -1,12 +1,8 @@
-
 //
-//  Enums.swift
-//  CustomCamera
+//  TOCropViewControllerTransitioning.h
 //
-//  Created by Ayush on 4/28/16.
-//  Copyright © 2016 Kiwitech. All rights reserved.
+//  Copyright 2015-2016 Timothy Oliver. All rights reserved.
 //
-
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
 //  deal in the Software without restriction, including without limitation the
@@ -24,38 +20,19 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-public enum CameraState
-{
-    case Authorized, AccessDenied, NotDetermined, Restricted
-}
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-public enum CameraDevicePosition
-{
-    case Front, Back
-}
+@interface TOCropViewControllerTransitioning : NSObject <UIViewControllerAnimatedTransitioning>
 
-public enum CameraFlashMode: Int
-{
-    case Off, On, Auto
-}
+@property (nonatomic, assign) BOOL isDismissing;
 
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, assign) CGRect fromFrame;
+@property (nonatomic, assign) CGRect toFrame;
 
-public enum CameraOutputQuality: Int
-{
-    case Low, Medium, High
-}
+@property (nonatomic, copy) void (^prepareForTransitionHandler)(void);
 
-public enum FlashMode : Int {
-    
-    case Off
-    case On
-    case Auto
-}
+- (void)reset;
 
-public enum TorchMode : Int {
-    
-    case Off
-    case On
-    case Auto
-}
-
+@end
