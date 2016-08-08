@@ -1,4 +1,4 @@
-Security-Framework
+Camera-Framework
 =============
 ## Features
 - [x] Capture Image in any frame.
@@ -11,7 +11,7 @@ Security-Framework
 
 Getting started
 ----------------
-1. Install Security Framework:
+1. Install Camera Framework:
    ```bash
    
    git clone https://github.com/kiwitechnologies/CustomCameraiOS.git
